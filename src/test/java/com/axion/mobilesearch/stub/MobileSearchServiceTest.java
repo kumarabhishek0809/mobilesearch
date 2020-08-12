@@ -26,7 +26,7 @@ public class MobileSearchServiceTest {
 
         //read json file and convert to customer object
         List<MobileSearchResponse> mobileSearchResponses =
-                objectMapper.readValue(new File("./resouces/data.json"), new TypeReference<List<MobileSearchResponse>>() {
+                objectMapper.readValue(new File("./resources/data.json"), new TypeReference<List<MobileSearchResponse>>() {
                 });
 
         mobileSearchService = new MobileSearchService(new MobileSearchClient() {
