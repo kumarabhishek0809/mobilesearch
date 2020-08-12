@@ -32,12 +32,6 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
-    testCompile "com.github.tomakehurst:wiremock-jre8:2.27.0"
 }
 
 dependencyManagement {

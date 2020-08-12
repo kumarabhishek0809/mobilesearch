@@ -21,11 +21,6 @@ public class MobileSearchService implements IMobileSearchService {
     }
 
     @Override
-    public List<MobileSearchResponse> getMobilePhones() {
-        return mobileSearchClient.getPhones();
-    }
-
-    @Override
     public List<MobileSearchResponse> getMobilePhones(Integer priceEur, String sim, String announceDate) {
         List<MobileSearchResponse> allMobiles = mobileSearchClient.getPhones();
 
