@@ -18,7 +18,7 @@ public interface MobileSearchPredicates {
     }
 
     static Predicate<MobileSearchResponse> getPredicateSim(String sim) {
-        return sim != null ? mobile -> mobile.getSim().equals(sim) :
+        return sim != null ? mobile -> mobile.getSim().contains(sim) :
                 mobileSearchResponse -> true;
     }
 
