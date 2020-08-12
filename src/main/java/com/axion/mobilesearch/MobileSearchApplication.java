@@ -20,7 +20,7 @@ public class MobileSearchApplication {
     public static void main(String[] args) {
         SpringApplication.run(MobileSearchApplication.class, args);
     }
-    public static final String MOBILE_CATALOG = "PRODUCT_CATLOG";
+    public static final String MOBILE_CATALOG = "MOBILE_CATALOG";
 
     @Bean
     public CacheManager cacheManager(){
