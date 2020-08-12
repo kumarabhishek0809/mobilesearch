@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -25,9 +26,11 @@ public class MobileSearchServiceTest {
         ObjectMapper objectMapper = new ObjectMapper();
 
         //read json file and convert to customer object
+        InputStream resourceAsStream = this.getClass().getResourceAsStream("/data.json");
         List<MobileSearchResponse> mobileSearchResponses =
-                objectMapper.readValue(new File("./resources/data.json"), new TypeReference<List<MobileSearchResponse>>() {
-                });
+                objectMapper.readValue(resourceAsStream,
+                        new TypeReference<List<MobileSearchResponse>>() {
+                        });
 
         mobileSearchService = new MobileSearchService(new MobileSearchClient() {
 
@@ -38,14 +41,24 @@ public class MobileSearchServiceTest {
         });
     }
 
+
     @Test
-    public void getMobilesTest() {
+    public void predicatePhonePriceTest() {
         List<MobileSearchResponse> mobilePhones = mobileSearchService.getMobilePhones(200, null, null);
         assertEquals(mobilePhones.size(), 10);
+    }
+
+    @Test
+    public void predicatePhoneEsimTest() {
         List<MobileSearchResponse> eSIM = mobileSearchService.getMobilePhones(null, "eSIM", null);
         assertEquals(eSIM.size(), 18);
-        List<MobileSearchResponse> eSim1999 = mobileSearchService.getMobilePhones(null, "eSIM", "1999");
+    }
+
+    @Test
+    public void predicatePhoneEsimYearLaunchTest() {
+        List<MobileSearchResponse> eSim1999 = mobileSearchService.getMobilePhones(200, null, "1999");
         assertEquals(eSim1999.size(), 2);
     }
+
 
 }
